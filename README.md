@@ -1,3 +1,5 @@
+[![Clojars Project](https://img.shields.io/clojars/v/nl.mediquest.logback.masking-pattern-layouts.svg)](https://clojars.org/nl.mediquest.logback.masking-pattern-layouts)
+
 # nl.mediquest.logback.masking-pattern-layouts
 
 Logback appenders for scrubbing sensitive data from logs
