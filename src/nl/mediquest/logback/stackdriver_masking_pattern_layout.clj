@@ -3,7 +3,7 @@
   It masks sensitive data with replacements from the re->replacement map."
   (:gen-class
    :extends ch.qos.logback.classic.PatternLayout
-   :name nl.mediquest.logging.StackdriverMaskingPatternLayout)
+   :name nl.mediquest.logback.StackdriverMaskingPatternLayout)
   (:require
    [cheshire.core :as json]
    [nl.mediquest.logback.util :refer [scrub]])
