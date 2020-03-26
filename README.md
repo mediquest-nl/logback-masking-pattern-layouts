@@ -6,7 +6,7 @@ Logback appenders for scrubbing sensitive data from logs
 
 ## Usage
 
-Require `[nl.mediquest.logback.masking-pattern-layouts "1.0.0"]`.
+Require `[nl.mediquest.logback.masking-pattern-layouts "1.0.2"]`.
 
 Include the pattern layouts in your appender. E.g.,:
 
@@ -31,6 +31,14 @@ Include the pattern layouts in your appender. E.g.,:
     <level>WARN</level>
   </filter>
 </appender>
+```
+
+## Examples
+
+### Stackdriver logging
+
+```sh
+{"message":":nl.mediquest.upload-backend.main/init {:password *****}","severity":"INFO","thread":"main","logger":"nl.mediquest.upload-backend.main"}
 ```
 
 ## Tests
