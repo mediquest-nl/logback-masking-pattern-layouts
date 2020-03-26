@@ -1,6 +1,6 @@
 (defproject nl.mediquest.logback.masking-pattern-layouts "1.0.2"
   :description "Logback appenders for scrubbing sensitive data from logs"
-  :url "https://bitbucket.org/mediquest-nl/logback-masking-pattern-layouts"
+  :url "https://github.com/mediquest-nl/logback-masking-pattern-layouts"
   :license {:name "The MIT License"}
   :aot [nl.mediquest.logback.masking-pattern-layout
         nl.mediquest.logback.stackdriver-masking-pattern-layout]
