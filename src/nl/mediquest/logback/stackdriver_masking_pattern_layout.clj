@@ -1,6 +1,6 @@
 (ns nl.mediquest.logback.stackdriver-masking-pattern-layout
   "Logback PatternLayout that logs in Stackdriver JSON format to stdout.
-  It masks sensitive data with replacements from the pattern->replacement map."
+  It masks sensitive data with replacements from the re->replacement map."
   (:gen-class
    :extends ch.qos.logback.classic.PatternLayout
    :name nl.mediquest.logging.StackdriverMaskingPatternLayout)
