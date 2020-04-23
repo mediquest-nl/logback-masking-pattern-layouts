@@ -13,6 +13,7 @@
 (def logback-level->gcloud-level
   {Level/ALL "DEBUG"
    Level/TRACE "DEBUG"
+   Level/DEBUG "DEBUG"
    Level/INFO "INFO"
    Level/WARN "WARNING"
    Level/ERROR "ERROR"})
