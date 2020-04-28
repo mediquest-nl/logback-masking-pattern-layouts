@@ -8,7 +8,7 @@ Logback appenders for scrubbing sensitive data from logs.
 
 Require `[nl.mediquest/logback.masking-pattern-layouts "1.0.5"]`.
 
-Include the LayoutWrappingEncoder with the `MaskingPatternLayout` in your
+Include the `LayoutWrappingEncoder` with the `MaskingPatternLayout` in your
 appender and provide regexes and their replacements. E.g.,:
 
 ```xml
@@ -61,7 +61,7 @@ and passwords) include `useDefaultMediquestReplacements` with a true value:
 <encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
   <layout class="nl.mediquest.logback.StackdriverMaskingPatternLayout">
     <pattern>%msg</pattern>
-    <useDefaultMediquestReplacements>true</useDefaultMediquestReplacements>:
+    <useDefaultMediquestReplacements>true</useDefaultMediquestReplacements>
   </layout>
 </encoder>
 ```
