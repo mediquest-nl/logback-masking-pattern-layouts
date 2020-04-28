@@ -4,7 +4,7 @@
    [nl.mediquest.logback.util :as sut]))
 
 (deftest scrub-test
-  (are [expected input] (= expected (sut/scrub input))
+  (are [expected input] (= expected (sut/scrub input sut/default-re->replacement))
     "password=***** bar yada"             "password=foo bar yada"
     "password:***** bar yada"             "password:foo bar yada"
     "password ***** bar yada"             "password foo bar yada"
