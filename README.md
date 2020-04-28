@@ -6,7 +6,7 @@ Logback appenders for scrubbing sensitive data from logs.
 
 ## Usage
 
-Require `[nl.mediquest/logback.masking-pattern-layouts "1.0.4"]`.
+Require `[nl.mediquest/logback.masking-pattern-layouts "1.0.5"]`.
 
 Include the LayoutWrappingEncoder with the `MaskingPatternLayout` in your
 appender and provide regexes and their replacements. E.g.,:
