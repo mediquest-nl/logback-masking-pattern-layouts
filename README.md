@@ -14,7 +14,7 @@ Include the pattern layouts in your appender. E.g.,:
 <appender name="GCLOUD" class="ch.qos.logback.core.ConsoleAppender">
   <encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
     <layout class="nl.mediquest.logback.StackdriverMaskingPatternLayout">
-      <pattern>%msg</pattern>
+      <pattern>%.-250msg</pattern>
     </layout>
   </encoder>
 </appender>
@@ -32,6 +32,10 @@ Include the pattern layouts in your appender. E.g.,:
   </filter>
 </appender>
 ```
+
+Note that `pattern` is a [standard PatternLayout conversion
+pattern](http://logback.qos.ch/manual/layouts.html#ClassicPatternLayout) that
+closely follows the `printf()` funtion in the C programming language.
 
 ## Examples
 

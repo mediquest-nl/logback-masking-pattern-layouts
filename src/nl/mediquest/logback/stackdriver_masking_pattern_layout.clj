@@ -3,6 +3,7 @@
   It masks sensitive data with replacements from the re->replacement map."
   (:gen-class
    :extends ch.qos.logback.classic.PatternLayout
+   :exposes-methods {doLayout superDoLayout}
    :name nl.mediquest.logback.StackdriverMaskingPatternLayout)
   (:require
    [cheshire.core :as json]
@@ -22,9 +23,9 @@
   (let [level (.getLevel event)]
     (get logback-level->gcloud-level level "DEFAULT")))
 
-(defn -doLayout [_ event]
+(defn -doLayout [this event]
   (str (json/encode
-        {:message (scrub (.getFormattedMessage event))
+        {:message (scrub (. this superDoLayout event))
          :severity (severity event)
          :thread (.getThreadName event)
          :logger (.getLoggerName event)})

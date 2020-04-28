@@ -3,9 +3,11 @@
   re->replacement map."
   (:gen-class
    :extends ch.qos.logback.classic.PatternLayout
+   :exposes-methods {doLayout superDoLayout}
    :name nl.mediquest.logback.MaskingPatternLayout)
   (:require
    [nl.mediquest.logback.util :refer [scrub]]))
 
-(defn -doLayout [_ event]
-  (str (scrub (.getFormattedMessage event)) "\n"))
+(defn -doLayout [this event]
+  (let [message (. this superDoLayout event)]
+    (str (scrub message) "\n")))
