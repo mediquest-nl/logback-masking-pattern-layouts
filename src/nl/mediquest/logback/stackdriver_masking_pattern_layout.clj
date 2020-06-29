@@ -17,9 +17,15 @@
              [setUseDefaultMediquestReplacements [Boolean] void]])
   (:require
    [cheshire.core :as json]
+   [clojure.string :as string]
    [nl.mediquest.logback.util :refer [scrub default-re->replacement]])
   (:import
-   (ch.qos.logback.classic Level)))
+   (ch.qos.logback.classic Level)
+   (ch.qos.logback.classic.pattern ThrowableProxyConverter)))
+
+(def tpc
+  (doto (ThrowableProxyConverter.)
+    (.setOptionList ["full"])))
 
 (defn -init
   []
@@ -57,11 +63,24 @@
   (let [level (.getLevel event)]
     (get logback-level->gcloud-level level "DEFAULT")))
 
+(defn add-stacktrace? [stacktrace]
+  (and stacktrace (not (string/blank? stacktrace))))
+
+(defn add-stacktrace [msg stacktrace]
+  (str msg \newline stacktrace))
+
+(defn message [msg stacktrace re->replacement]
+  (let [enriched-msg (cond-> msg
+                       (add-stacktrace? stacktrace)
+                       (add-stacktrace stacktrace))]
+    (scrub enriched-msg re->replacement)))
+
 (defn -doLayout [this event]
   (let [msg (. this superDoLayout event)
+        stacktrace (. tpc convert event)
         re->replacement (get-re->replacement @(.state this))]
     (str (json/encode
-          {:message (scrub msg re->replacement)
+          {:message (message msg stacktrace re->replacement)
            :severity (severity event)
            :thread (.getThreadName event)
            :logger (.getLoggerName event)})
