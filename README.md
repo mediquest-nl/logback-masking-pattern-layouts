@@ -1,12 +1,12 @@
 [![Clojars Project](https://img.shields.io/clojars/v/nl.mediquest/logback.masking-pattern-layouts.svg)](https://clojars.org/nl.mediquest/logback.masking-pattern-layouts)
 
-# logback masking pattern layouts
+# Logback masking pattern layouts
 
-Logback appenders for scrubbing sensitive data from logs.
+Logback encoder layouts for scrubbing sensitive data from logs.
 
 ## Usage
 
-Require `[nl.mediquest/logback.masking-pattern-layouts "1.0.5"]`.
+Require `[nl.mediquest/logback.masking-pattern-layouts "1.0.6"]`.
 
 Include the `LayoutWrappingEncoder` with the `MaskingPatternLayout` in your
 appender and provide regexes and their replacements. E.g.,:
@@ -37,8 +37,8 @@ A replacement can contain capture groups via the `%1` and `%2` variables. See
 [examples](#examples) below. For all replacement options see
 [`clojure.string/replace`](https://clojuredocs.org/clojure.string/replace).
 
-For Stackdriver use the `StackdriverMaskingPatternLayout` that logs to stdout in
-the Stackdriver format.
+For Stackdriver use the `StackdriverMaskingPatternLayout` in the 
+`ConsoleAppender` for logging to stdout in the Stackdriver format:
 
 ```xml
 <appender name="GCLOUD" class="ch.qos.logback.core.ConsoleAppender">
@@ -93,7 +93,12 @@ first captured group `$1`.
 ### Stackdriver logging output
 
 ```sh
-{"message":":nl.mediquest.upload-backend.main/init {:password *****}","severity":"INFO","thread":"main","logger":"nl.mediquest.upload-backend.main"}
+{
+    "message":":nl.mediquest.upload-backend.main/init {:password *****}",
+    "severity":"INFO",
+    "thread":"main",
+    "logger":"nl.mediquest.upload-backend.main"
+}
 ```
 
 ## Tests
