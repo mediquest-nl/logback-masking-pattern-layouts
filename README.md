@@ -6,7 +6,27 @@ Logback encoder layouts for scrubbing sensitive data from logs.
 
 ## Usage
 
-Require `[nl.mediquest/logback.masking-pattern-layouts "1.0.6"]`.
+#### Leiningen/Boot
+
+`[nl.mediquest/logback.masking-pattern-layouts "1.0.6"]`
+
+#### Clojure CLI/deps.edn
+
+`nl.mediquest/logback.masking-pattern-layouts {:mvn/version "1.0.6"}`
+
+#### Gradle
+
+compile 'nl.mediquest:logback.masking-pattern-layouts:1.0.6'`
+
+#### Maven
+
+```sh
+<dependency>
+  <groupId>nl.mediquest</groupId>
+  <artifactId>logback.masking-pattern-layouts</artifactId>
+  <version>1.0.6</version>
+</dependency>
+```
 
 Include the `LayoutWrappingEncoder` with the `MaskingPatternLayout` in your
 appender and provide regexes and their replacements. E.g.,:
@@ -72,7 +92,7 @@ Custom regexes and replacements take precedence over the added default ones.
 
 ### Masking a password
 
-Below maskes strings that contain password=xxx or password="xxx" as
+Below masks strings that contain password=xxx or password="xxx" as
 password=***** and password="*****" respectively.
 
 ```xml
