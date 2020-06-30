@@ -16,7 +16,7 @@ Logback encoder layouts for scrubbing sensitive data from logs.
 
 #### Gradle
 
-compile 'nl.mediquest:logback.masking-pattern-layouts:1.0.6'`
+`compile 'nl.mediquest:logback.masking-pattern-layouts:1.0.6'`
 
 #### Maven
 
