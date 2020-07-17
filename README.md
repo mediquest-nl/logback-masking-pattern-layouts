@@ -99,10 +99,10 @@ password=***** and password="*****" respectively.
 <encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
   <layout class="nl.mediquest.logback.StackdriverMaskingPatternLayout">
     <pattern>%msg</pattern>
-      <regex>(?i)(password(?:=\s*|\:\s*|\s*|=\s*))\w+</regex>
-      <replacement>$1*****</replacement>
-      <regex>(?i)(password(?:=\s*|\:\s*|\s*|=\s*))\&quot;.*\&quot;</regex>
-      <replacement>$1*****</replacement>
+    <regex>(?i)(password(?:=\s*|\:\s*|\s*|=\s*))\w+</regex>
+    <replacement>$1*****</replacement>
+    <regex>(?i)(password(?:=\s*|\:\s*|\s*|=\s*))\&quot;.*\&quot;</regex>
+    <replacement>$1*****</replacement>
   </layout>
 </encoder>
 ```
