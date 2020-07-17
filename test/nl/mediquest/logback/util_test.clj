@@ -24,5 +24,7 @@
     "IBAN: \"<iban>7101\""                "IBAN: \"NL88TRIO0298087101\""
     "IBAN: \"<iban>7102\""                "IBAN: \"NL 88 TRIO 0298987102\""
     "creditcard: \"<creditcard> lalala\"" "creditcard: \"5500 0000 0000 0004 lalala\""
+    "postgresql://my_user:*****@"         "postgresql://my_user:PassW0Rd1@"
+    "postgresql://my_user:*****@"         "postgresql://my_user:\nPassW0Rd1\n@"
     ":value {:jdbc-url \"jdbc:postgresql://127.0.0.1:5432/config_db?user=config_reader&password=*****\"}}"
     ":value {:jdbc-url \"jdbc:postgresql://127.0.0.1:5432/config_db?user=config_reader&password=xxx\"}}"))

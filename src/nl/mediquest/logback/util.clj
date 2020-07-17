@@ -20,7 +20,8 @@
    #"(?i)(agb(?:=\s*|\:\s*|\s*|=\s*))\w+" "$1*****"
    #"(?i)(agb(?:=\s*|\:\s*|\s*|=\s*))\".*\"" "$1*****"
    #"(?i)(name(?:=\s*|\:\s*|\s*|=\s*))\w+" "$1*****"
-   #"(?i)(name(?:=\s*|\:\s*|\s*|=\s*))\".*\"" "$1*****"))
+   #"(?i)(name(?:=\s*|\:\s*|\s*|=\s*))\".*\"" "$1*****"
+   #"(postgresql:\/\/.*:)(.|[\r\n])*@" "$1*****@"))
 
 (defn scrub [message re->replacement]
   (reduce-kv string/replace message re->replacement))
