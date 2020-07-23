@@ -8,15 +8,15 @@ Logback encoder layouts for scrubbing sensitive data from logs.
 
 #### Leiningen/Boot
 
-`[nl.mediquest/logback.masking-pattern-layouts "1.0.7"]`
+`[nl.mediquest/logback.masking-pattern-layouts "1.0.8"]`
 
 #### Clojure CLI/deps.edn
 
-`nl.mediquest/logback.masking-pattern-layouts {:mvn/version "1.0.7"}`
+`nl.mediquest/logback.masking-pattern-layouts {:mvn/version "1.0.8"}`
 
 #### Gradle
 
-`compile 'nl.mediquest:logback.masking-pattern-layouts:1.0.7'`
+`compile 'nl.mediquest:logback.masking-pattern-layouts:1.0.8'`
 
 #### Maven
 
@@ -24,7 +24,7 @@ Logback encoder layouts for scrubbing sensitive data from logs.
 <dependency>
   <groupId>nl.mediquest</groupId>
   <artifactId>logback.masking-pattern-layouts</artifactId>
-  <version>1.0.7</version>
+  <version>1.0.8</version>
 </dependency>
 ```
 
@@ -57,7 +57,7 @@ A replacement can contain capture groups via the `%1` and `%2` variables. See
 [examples](#examples) below. For all replacement options see
 [`clojure.string/replace`](https://clojuredocs.org/clojure.string/replace).
 
-For Stackdriver use the `StackdriverMaskingPatternLayout` in the 
+For Stackdriver use the `StackdriverMaskingPatternLayout` in the
 `ConsoleAppender` for logging to stdout in the Stackdriver format:
 
 ```xml

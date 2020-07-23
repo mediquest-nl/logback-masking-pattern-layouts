@@ -10,9 +10,9 @@
    #"0[6]{1}(\-)?[^0\D]{1}\d{7}" "<telefoon>"
    #"(?i)[A-Z]{2}\s?\d{2}\s?[A-Z]{0,4}\s?\d{4}\s?\d{0,2}" "<iban>"
    #"\b(?:\d[ -]*?){13,16}\b" "<creditcard>"
-   #"[0-9]{9}" "<bsn>" ;; Possibly catches bit too much
-   #"[0-9]{8}" "<AGB>" ;; Possibly catches bit too much
    ;; Found in code
+   #"(?i)(bsn(?:=\s*|\:\s*|\s*|=\s*))\w+" "$1*****"
+   #"(?i)(bsn(?:=\s*|\:\s*|\s*|=\s*))\".*\"" "$1*****"
    #"(?i)(password(?:=\s*|\:\s*|\s*|=\s*))\w+" "$1*****"
    #"(?i)(password(?:=\s*|\:\s*|\s*|=\s*))\".*\"" "$1*****"
    #"(?i)(pw(?:=\s*|\:\s*|\s*|=\s*))\w+" "$1*****"
