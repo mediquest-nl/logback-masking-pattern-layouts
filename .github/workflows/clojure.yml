@@ -8,7 +8,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     container:
-      image: clojure:temurin-24-lein-trixie-slim
+      image: clojure:temurin-21-lein-bookworm-slim
     steps:
     - uses: actions/checkout@v4
     - name: Run tests
