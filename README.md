@@ -8,15 +8,15 @@ Logback encoder layouts for scrubbing sensitive data from logs.
 
 #### Leiningen/Boot
 
-`[nl.mediquest/logback.masking-pattern-layouts "1.0.10"]`
+`[nl.mediquest/logback.masking-pattern-layouts "2.0.0"]`
 
 #### Clojure CLI/deps.edn
 
-`nl.mediquest/logback.masking-pattern-layouts {:mvn/version "1.0.10"}`
+`nl.mediquest/logback.masking-pattern-layouts {:mvn/version "2.0.0"}`
 
 #### Gradle
 
-`compile 'nl.mediquest:logback.masking-pattern-layouts:1.0.10'`
+`compile 'nl.mediquest:logback.masking-pattern-layouts:2.0.0`
 
 #### Maven
 
@@ -24,7 +24,7 @@ Logback encoder layouts for scrubbing sensitive data from logs.
 <dependency>
   <groupId>nl.mediquest</groupId>
   <artifactId>logback.masking-pattern-layouts</artifactId>
-  <version>1.0.10</version>
+  <version>2.0.0</version>
 </dependency>
 ```
 
