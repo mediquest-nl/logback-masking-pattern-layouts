@@ -1,5 +1,5 @@
-(ns nl.mediquest.logback.stackdriver-masking-pattern-layout
-  "Logback PatternLayout that logs in Stackdriver JSON format to stdout.
+(ns nl.mediquest.logback.google-cloud-masking-pattern-layout
+  "Logback PatternLayout that logs in Google Cloud Logging JSON format to stdout.
 
   Scrubs via regexes and their replacements from regex and replacement
   XML-elements found in the Logback configuration. When an element
@@ -9,7 +9,7 @@
   (:gen-class
    :extends ch.qos.logback.classic.PatternLayout
    :exposes-methods {doLayout superDoLayout}
-   :name nl.mediquest.logback.StackdriverMaskingPatternLayout
+   :name nl.mediquest.logback.GoogleCloudMaskingPatternLayout
    :state state
    :init init
    :methods [[setRegex [String] void]

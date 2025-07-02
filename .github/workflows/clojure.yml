@@ -1,0 +1,15 @@
+name: Clojure CI
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: clojure:temurin-21-lein-bookworm-slim
+    steps:
+    - uses: actions/checkout@v4
+    - name: Run tests
+      run: lein test :unit

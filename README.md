@@ -8,15 +8,15 @@ Logback encoder layouts for scrubbing sensitive data from logs.
 
 #### Leiningen/Boot
 
-`[nl.mediquest/logback.masking-pattern-layouts "1.0.9"]`
+`[nl.mediquest/logback.masking-pattern-layouts "2.0.0"]`
 
 #### Clojure CLI/deps.edn
 
-`nl.mediquest/logback.masking-pattern-layouts {:mvn/version "1.0.9"}`
+`nl.mediquest/logback.masking-pattern-layouts {:mvn/version "2.0.0"}`
 
 #### Gradle
 
-`compile 'nl.mediquest:logback.masking-pattern-layouts:1.0.9'`
+`compile 'nl.mediquest:logback.masking-pattern-layouts:2.0.0`
 
 #### Maven
 
@@ -24,7 +24,7 @@ Logback encoder layouts for scrubbing sensitive data from logs.
 <dependency>
   <groupId>nl.mediquest</groupId>
   <artifactId>logback.masking-pattern-layouts</artifactId>
-  <version>1.0.9</version>
+  <version>2.0.0</version>
 </dependency>
 ```
 
@@ -57,13 +57,13 @@ A replacement can contain capture groups via the `%1` and `%2` variables. See
 [examples](#examples) below. For all replacement options see
 [`clojure.string/replace`](https://clojuredocs.org/clojure.string/replace).
 
-For Stackdriver use the `StackdriverMaskingPatternLayout` in the
-`ConsoleAppender` for logging to stdout in the Stackdriver format:
+For Google Cloud Logging use the `GoogleCloudMaskingPatternLayout` in the
+`ConsoleAppender` for logging to stdout in the Google Cloud Logging format:
 
 ```xml
 <appender name="GCLOUD" class="ch.qos.logback.core.ConsoleAppender">
   <encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
-    <layout class="nl.mediquest.logback.StackdriverMaskingPatternLayout">
+    <layout class="nl.mediquest.logback.GoogleCloudMaskingPatternLayout">
       <pattern>%msg</pattern>
       <regex>some-xml-encoded-regex</regex>
       <replacement>a-replacement</replacement
@@ -79,7 +79,7 @@ and passwords) include `useDefaultMediquestReplacements` with a true value:
 
 ```xml
 <encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
-  <layout class="nl.mediquest.logback.StackdriverMaskingPatternLayout">
+  <layout class="nl.mediquest.logback.GoogleCloudMaskingPatternLayout">
     <pattern>%msg</pattern>
     <useDefaultMediquestReplacements>true</useDefaultMediquestReplacements>
   </layout>
@@ -97,7 +97,7 @@ password=***** and password="*****" respectively.
 
 ```xml
 <encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
-  <layout class="nl.mediquest.logback.StackdriverMaskingPatternLayout">
+  <layout class="nl.mediquest.logback.GoogleCloudMaskingPatternLayout">
     <pattern>%msg</pattern>
     <regex>(?i)(password(?:=\s*|\:\s*|\s*|=\s*))\w+</regex>
     <replacement>$1*****</replacement>
@@ -110,7 +110,7 @@ password=***** and password="*****" respectively.
 Note that regex strings are XML-escaped and that the replacement contains the
 first captured group `$1`.
 
-### Stackdriver logging output
+### Google Cloud Logging output
 
 ```sh
 {
